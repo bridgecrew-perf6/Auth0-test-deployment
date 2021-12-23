@@ -1,0 +1,13 @@
+{
+  "AUTH0_DOMAIN": "zerohr-staging.us.auth0.com",
+  "AUTH0_CLIENT_ID": "Y13eh0EhojdF1Bti06FLJJ1jZx0Pb0hJ",
+  "AUTH0_ALLOW_DELETE": true,
+  "AUTH0_KEYWORD_REPLACE_MAPPINGS": {
+    "APP_CALLBACKS": ["https://www.staging.zerohr.app", "https://staging.zerohr.app"],
+    "API_IDENTIFIER": "https://api.staging.zerohr.app/"
+  },
+  "EXCLUDED_PROPS": {
+    "clients": ["client_secret"],
+    "connections": ["options.client_secret"]
+  }
+}

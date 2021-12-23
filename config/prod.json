@@ -1,0 +1,13 @@
+{
+  "AUTH0_DOMAIN": "suresh-prod.us.auth0.com",
+  "AUTH0_CLIENT_ID": "pOZd9zqjHCJWbWGuvJFdWFrKbgdKXCqZ",
+  "AUTH0_ALLOW_DELETE": true,
+  "AUTH0_KEYWORD_REPLACE_MAPPINGS": {
+    "APP_CALLBACKS": ["https://app.newfi.com/loancenter"],
+    "API_IDENTIFIER": "https://app.newfi.com/loancenter/"
+  },
+  "EXCLUDED_PROPS": {
+    "clients": ["client_secret"],
+    "connections": ["options.client_secret"]
+  }
+}

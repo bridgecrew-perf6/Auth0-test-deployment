@@ -1,0 +1,13 @@
+{
+  "AUTH0_DOMAIN": "auth0-test-integration.us.auth0.com",
+  "AUTH0_CLIENT_ID": "2oVWTPDVliKkeFKlJ0QAtMhfVpj12IJP",
+  "AUTH0_ALLOW_DELETE": true,
+  "AUTH0_KEYWORD_REPLACE_MAPPINGS": {
+    "APP_CALLBACKS": ["https://test.newfi.com/loancenter"],
+    "API_IDENTIFIER": "https://test.newfi.com/loancenter/"
+  },
+  "EXCLUDED_PROPS": {
+    "clients": ["client_secret"],
+    "connections": ["options.client_secret"]
+  }
+}
