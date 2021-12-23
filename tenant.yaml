@@ -98,7 +98,7 @@ clients:
   - name: My App
     allowed_clients: []
     allowed_logout_urls:
-      - http://localhost:8080/
+      - @@APP_LOGOUT_URLS@@
     app_type: regular_web
     callbacks:
       - http://localhost:8080/callback
