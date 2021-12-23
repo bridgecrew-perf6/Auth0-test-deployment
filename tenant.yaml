@@ -252,7 +252,6 @@ databases:
       - Default App
       - loancenter
       - My App
-      - My App
       - test-web-app
     is_domain_connection: false
     options:
@@ -324,7 +323,6 @@ connections:
       - API Explorer Application
       - Default App
       - loancenter
-      - My App
       - My App
       - test-web-app
     is_domain_connection: false
