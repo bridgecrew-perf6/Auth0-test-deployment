@@ -140,7 +140,7 @@ clients:
       - @@APP_LOGOUT_URLS@@
     app_type: regular_web
     callbacks:
-      - @@APP_CALLBACKS@@
+      - ##APP_CALLBACKS##
     client_aliases: []
     cross_origin_auth: false
     custom_login_page_on: true
