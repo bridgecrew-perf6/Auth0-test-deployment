@@ -3,7 +3,7 @@
   "AUTH0_CLIENT_ID": "Qpf97ZoHcDDTLz3W3TK26JnDsVFLMkI3",
   "AUTH0_ALLOW_DELETE": true,
   "AUTH0_KEYWORD_REPLACE_MAPPINGS": {
-    "APP_CALLBACKS": "https://uat.newfi.com/loancenter",
+    "APP_CALLBACKS": ["https://uat.newfi.com/loancenter"],
 	"APP_LOGOUT_URLS": ["https://test.newfi.com/loancenter","https://test.newfi.com/loancenter/"],
     "API_IDENTIFIER": "https://uat.newfi.com/loancenter/"
   },
