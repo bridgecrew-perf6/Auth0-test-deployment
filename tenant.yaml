@@ -1,0 +1,361 @@
+rules: []
+rulesConfigs: []
+hooks:
+  - name: send-email
+    script: ./hooks/send-email.js
+    dependencies:
+      auth0: 2.9.1
+    enabled: true
+    secrets: {}
+    triggerId: post-user-registration
+  - name: send-email-confirmation-and-pwd-reset-email
+    script: ./hooks/send-email-confirmation-and-pwd-reset-email.js
+    dependencies: {}
+    enabled: false
+    secrets: {}
+    triggerId: post-user-registration
+pages: []
+resourceServers:
+  - name: menu-api
+    identifier: ##API_IDENTIFIER##
+    allow_offline_access: false
+    signing_alg: RS256
+    skip_consent_for_verifiable_first_party_clients: true
+    token_lifetime: 86400
+    token_lifetime_for_web: 7200
+clients:
+  - name: API Explorer Application
+    app_type: non_interactive
+    cross_origin_auth: false
+    custom_login_page_on: true
+    grant_types:
+      - client_credentials
+    is_first_party: true
+    is_token_endpoint_ip_header_trusted: false
+    jwt_configuration:
+      alg: RS256
+      lifetime_in_seconds: 36000
+      secret_encoded: false
+    oidc_conformant: true
+    refresh_token:
+      expiration_type: non-expiring
+      leeway: 0
+      infinite_token_lifetime: true
+      infinite_idle_token_lifetime: true
+      token_lifetime: 31557600
+      idle_token_lifetime: 2592000
+      rotation_type: non-rotating
+    sso_disabled: false
+    token_endpoint_auth_method: client_secret_post
+  - name: Default App
+    callbacks: []
+    cross_origin_auth: false
+    custom_login_page_on: true
+    grant_types:
+      - authorization_code
+      - implicit
+      - refresh_token
+      - client_credentials
+    is_first_party: true
+    is_token_endpoint_ip_header_trusted: false
+    jwt_configuration:
+      alg: RS256
+      lifetime_in_seconds: 36000
+      secret_encoded: false
+    oidc_conformant: true
+    refresh_token:
+      expiration_type: non-expiring
+      leeway: 0
+      infinite_token_lifetime: true
+      infinite_idle_token_lifetime: true
+      token_lifetime: 2592000
+      idle_token_lifetime: 1296000
+      rotation_type: non-rotating
+    sso_disabled: false
+  - name: My App
+    app_type: non_interactive
+    cross_origin_auth: false
+    custom_login_page_on: true
+    grant_types:
+      - client_credentials
+    is_first_party: true
+    is_token_endpoint_ip_header_trusted: false
+    jwt_configuration:
+      alg: RS256
+      lifetime_in_seconds: 36000
+      secret_encoded: false
+    oidc_conformant: true
+    refresh_token:
+      expiration_type: non-expiring
+      leeway: 0
+      infinite_token_lifetime: true
+      infinite_idle_token_lifetime: true
+      token_lifetime: 31557600
+      idle_token_lifetime: 2592000
+      rotation_type: non-rotating
+    sso_disabled: false
+    token_endpoint_auth_method: client_secret_post
+  - name: loancenter
+    allowed_clients: []
+    allowed_logout_urls: @@APP_LOGOUT_URLS@@
+    allowed_origins: @@APP_ALLOWED_ORIGINS@@
+    app_type: regular_web
+    callbacks: @@APP_CALLBACKS@@
+    client_aliases: []
+    cross_origin_auth: false
+    custom_login_page_on: true
+    grant_types:
+      - authorization_code
+      - implicit
+      - refresh_token
+      - client_credentials
+    is_first_party: true
+    is_token_endpoint_ip_header_trusted: false
+    jwt_configuration:
+      alg: RS256
+      lifetime_in_seconds: 36000
+      secret_encoded: false
+    native_social_login:
+      apple:
+        enabled: false
+      facebook:
+        enabled: false
+    oidc_conformant: true
+    refresh_token:
+      expiration_type: non-expiring
+      leeway: 0
+      infinite_token_lifetime: true
+      infinite_idle_token_lifetime: true
+      token_lifetime: 31557600
+      idle_token_lifetime: 2592000
+      rotation_type: non-rotating
+    sso_disabled: false
+    token_endpoint_auth_method: client_secret_post
+  - name: test-web-app
+    allowed_clients: []
+    allowed_logout_urls: @@APP_LOGOUT_URLS@@
+    app_type: regular_web
+    callbacks: @@APP_CALLBACKS@@
+    client_aliases: []
+    cross_origin_auth: false
+    custom_login_page_on: true
+    grant_types:
+      - authorization_code
+      - implicit
+      - refresh_token
+      - client_credentials
+    is_first_party: true
+    is_token_endpoint_ip_header_trusted: false
+    jwt_configuration:
+      alg: RS256
+      lifetime_in_seconds: 36000
+      secret_encoded: false
+    native_social_login:
+      apple:
+        enabled: false
+      facebook:
+        enabled: false
+    oidc_conformant: true
+    refresh_token:
+      expiration_type: non-expiring
+      leeway: 0
+      infinite_token_lifetime: true
+      infinite_idle_token_lifetime: true
+      token_lifetime: 31557600
+      idle_token_lifetime: 2592000
+      rotation_type: non-rotating
+    sso_disabled: false
+    token_endpoint_auth_method: client_secret_post
+databases:
+  - name: MyDB
+    strategy: auth0
+    enabled_clients: []
+    is_domain_connection: false
+    options:
+      mfa:
+        active: true
+        return_enroll_settings: true
+      import_mode: false
+      customScripts:
+        change_password: ./databases/MyDB/change_password.js
+        create: ./databases/MyDB/create.js
+        delete: ./databases/MyDB/delete.js
+        get_user: ./databases/MyDB/get_user.js
+        login: ./databases/MyDB/login.js
+        verify: ./databases/MyDB/verify.js
+      disable_signup: false
+      passwordPolicy: good
+      password_history:
+        size: 5
+        enable: false
+      strategy_version: 2
+      requires_username: false
+      password_dictionary:
+        enable: false
+        dictionary: []
+      brute_force_protection: true
+      password_no_personal_info:
+        enable: false
+      password_complexity_options:
+        min_length: 8
+      enabledDatabaseCustomization: true
+    realms:
+      - MyDB
+  - name: Username-Password-Authentication
+    strategy: auth0
+    enabled_clients:
+      - API Explorer Application
+      - Default App
+      - loancenter
+      - My App
+      - test-web-app
+    is_domain_connection: false
+    options:
+      mfa:
+        active: true
+        return_enroll_settings: true
+      passwordPolicy: good
+      strategy_version: 2
+      brute_force_protection: true
+    realms:
+      - Username-Password-Authentication
+connections:
+  - name: facebook
+    strategy: facebook
+    enabled_clients:
+      - API Explorer Application
+      - loancenter
+      - test-web-app
+    is_domain_connection: false
+    options:
+      email: true
+      scope: >-
+        email,user_gender,user_location,user_link,user_birthday,user_age_range,public_profile
+      ads_read: false
+      client_id: ''
+      user_link: true
+      user_likes: false
+      user_posts: false
+      read_stream: false
+      user_events: false
+      user_gender: true
+      user_groups: false
+      user_photos: false
+      user_status: false
+      user_videos: false
+      manage_pages: false
+      read_mailbox: false
+      user_friends: false
+      publish_pages: false
+      publish_video: false
+      read_insights: false
+      user_birthday: true
+      user_hometown: false
+      user_location: true
+      ads_management: false
+      public_profile: true
+      user_age_range: true
+      leads_retrieval: false
+      pages_messaging: false
+      pages_show_list: false
+      publish_actions: false
+      pages_manage_cta: false
+      publish_to_groups: false
+      user_tagged_places: false
+      business_management: false
+      read_page_mailboxes: false
+      user_managed_groups: false
+      manage_notifications: false
+      groups_access_member_info: false
+      allow_context_profile_field: false
+      pages_messaging_phone_number: false
+      pages_manage_instant_articles: false
+      pages_messaging_subscriptions: false
+      read_audience_network_insights: false
+  - name: google-oauth2
+    strategy: google-oauth2
+    enabled_clients:
+      - API Explorer Application
+      - Default App
+      - loancenter
+      - My App
+      - test-web-app
+    is_domain_connection: false
+    options:
+      email: true
+      scope:
+        - email
+        - profile
+      profile: true
+tenant:
+  enabled_locales:
+    - en
+  flags:
+    universal_login: true
+    revoke_refresh_token_grant: false
+    disable_clickjack_protection_headers: false
+emailProvider:
+  name: sendgrid
+  credentials:
+    api_key: '##SENDGRID_API_KEY##'
+  default_from_address: test-support@auth0.com
+  enabled: true
+emailTemplates:
+  - template: reset_email
+    body: ./emailTemplates/reset_email.html
+    enabled: true
+    from: automated@newfi.com
+    resultUrl: ''
+    subject: Welcome to {{ application.name }}!
+    syntax: liquid
+    urlLifetimeInSeconds: 432000
+  - template: verify_email
+    body: ./emailTemplates/verify_email.html
+    enabled: false
+    from: ''
+    subject: ''
+    syntax: liquid
+    urlLifetimeInSeconds: 432000
+clientGrants:
+  - client_id: My App
+    audience: https://auth0-test-integration.us.auth0.com/api/v2/
+    scope:
+      - read:users
+      - update:users
+      - delete:users
+      - create:users
+guardianFactors:
+  - name: duo
+    enabled: false
+  - name: email
+    enabled: true
+  - name: otp
+    enabled: false
+  - name: push-notification
+    enabled: false
+  - name: recovery-code
+    enabled: false
+  - name: sms
+    enabled: true
+  - name: webauthn-platform
+    enabled: false
+  - name: webauthn-roaming
+    enabled: false
+guardianFactorProviders: []
+guardianFactorTemplates: []
+guardianPolicies:
+  policies: []
+guardianPhoneFactorSelectedProvider:
+  provider: auth0
+guardianPhoneFactorMessageTypes:
+  message_types:
+    - sms
+roles: []
+branding: {}
+prompts:
+  universal_login_experience: new
+migrations:
+  issue_opaque_access_tokens: false
+actions: []
+triggers: {}
+organizations: []

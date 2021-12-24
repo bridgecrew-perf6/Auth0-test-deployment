@@ -1,0 +1,15 @@
+{
+	"name": "github-actions-deploy-auth0",
+	"version": "1.0.0",
+	"description": "Sample repository illustrating how you can deploy changes to your Auth0 accounts with GitHub Actions",
+	"scripts": {
+		"export:dev": "a0deploy export --strip --format yaml --output_folder . --config_file ./config/dev.json --secret $DEV_AUTH0_CLIENT_SECRET",
+		"import:uat": "a0deploy import --input_file tenant.yaml --config_file ./config/uat.json",
+		"import:prod": "a0deploy import --input_file tenant.yaml --config_file ./config/prod.json"
+	},
+	"author": "Suresh Kadi",
+	"dependencies": {
+		"auth0-deploy-cli": "^7.3.1",
+		"auth0-source-control-extension-tools": "^4.0.7"
+	}
+}

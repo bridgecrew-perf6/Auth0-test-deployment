@@ -1,0 +1,22 @@
+name: Deploy to Auth0 UAT account
+on:
+  push:
+    branches: [staging]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: UAT
+    steps:
+      - name: Download files from the current repository
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - name: Install the auth0-deploy-cli
+        run: npm install
+      - name: Import changes to the Auth0 UAT account
+        env:
+          AUTH0_CLIENT_SECRET: ${{ secrets.UAT_AUTH0_CLIENT_SECRET }}
+        run: npm run import:uat
