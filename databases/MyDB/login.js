@@ -2,7 +2,7 @@ function login(email, password, callback) {
   const request = require('request');
 
   request.get({
-    url: 'http://localhost:8080/auth0/authorize',
+    url: 'https://uat.newfi.com/loancenter/auth0/authorize',
     auth: {
       username: email,
       password: password
