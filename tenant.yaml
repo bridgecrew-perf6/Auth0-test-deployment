@@ -136,9 +136,11 @@ clients:
     token_endpoint_auth_method: client_secret_post
   - name: test-web-app
     allowed_clients: []
-    allowed_logout_urls:@@APP_LOGOUT_URLS@@
+    allowed_logout_urls:
+      - @@APP_LOGOUT_URLS@@
     app_type: regular_web
-    callbacks:@@APP_CALLBACKS@@
+    callbacks:
+      - @@APP_CALLBACKS@@
     client_aliases: []
     cross_origin_auth: false
     custom_login_page_on: true
