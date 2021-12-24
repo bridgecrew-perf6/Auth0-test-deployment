@@ -98,7 +98,7 @@ clients:
   - name: loancenter
     allowed_clients: []
     allowed_logout_urls: @@APP_LOGOUT_URLS@@
-    allowed_origins:@@APP_ALLOWED_ORIGINS@@
+    allowed_origins: @@APP_ALLOWED_ORIGINS@@
     app_type: regular_web
     callbacks: @@APP_CALLBACKS@@
     client_aliases: []
