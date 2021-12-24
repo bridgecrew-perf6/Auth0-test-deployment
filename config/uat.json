@@ -4,8 +4,9 @@
   "AUTH0_ALLOW_DELETE": true,
   "AUTH0_KEYWORD_REPLACE_MAPPINGS": {
     "APP_CALLBACKS": ["https://uat.newfi.com/loancenter"],
-	"APP_LOGOUT_URLS": ["https://test.newfi.com/loancenter","https://test.newfi.com/loancenter/"],
-    "API_IDENTIFIER": "https://uat.newfi.com/loancenter/"
+	"APP_LOGOUT_URLS": ["https://uat.newfi.com/loancenter","https://uat.newfi.com/loancenter/"],
+    "API_IDENTIFIER": "https://uat.newfi.com/loancenter/",
+	"APP_ALLOWED_ORIGINS": ["https://uat.newfi.com/loancenter"]
   },
   "EXCLUDED_PROPS": {
     "clients": ["client_secret"],

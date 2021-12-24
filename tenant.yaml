@@ -98,8 +98,7 @@ clients:
   - name: loancenter
     allowed_clients: []
     allowed_logout_urls: @@APP_LOGOUT_URLS@@
-    allowed_origins:
-      - http://localhost:8080/loancenter
+    allowed_origins:@@APP_ALLOWED_ORIGINS@@
     app_type: regular_web
     callbacks: @@APP_CALLBACKS@@
     client_aliases: []
