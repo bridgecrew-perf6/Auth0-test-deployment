@@ -360,7 +360,7 @@ branding: {}
 prompts:
   universal_login_experience: new
 migrations:
-  issue_opaque_access_tokens: true
+  issue_opaque_access_tokens: false
 actions: []
 triggers: {}
 organizations: []
